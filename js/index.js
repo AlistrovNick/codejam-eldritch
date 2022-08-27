@@ -1,17 +1,29 @@
 import Ancients from './../data/ancients.js';
 import { blueCards, brownCards, greenCards } from './../data/mythicCards/index.js';
 
+const DIFFICULTIES = {
+    'veryEasy': 0,
+    'easy': 1,
+    'normal': 2,
+    'hard': 3,
+    'insane': 4
+};
+
 const ancientCards = document.querySelector('.settings__cards');
 const difficulties = document.querySelector('.difficulty');
 const shuffleBtn = document.querySelector('.setting__btn');
+const deckElement = document.querySelector('.game__deck');
+const openedCard = document.querySelector('.game__opened-card');
 
 let selectedAcncientCard = Ancients[ancientCards.querySelector('input[type="radio"]:checked').value];
 let selectedDifficulty = difficulties.querySelector('input[type="radio"]:checked').value;
 let deck;
+let currentCard = 0;
 
 ancientCards.addEventListener('click', onAncientCardClick);
 difficulties.addEventListener('click', onDifficultyClick);
 shuffleBtn.addEventListener('click', onShuffleBtnClick);
+deckElement.addEventListener('click', onDeckClick);
 
 function onAncientCardClick(e) {
     if (e.target.classList.contains('settings__input')) {
@@ -30,6 +42,19 @@ function onShuffleBtnClick(e) {
     let cardsCount = getCardsCount();
     let cards = getRandomCards(cardsCount);
     deck = createDeck(cards);
+    setVisibleGameArea();
+}
+
+function onDeckClick(e) {
+    if (currentCard < deck.length) {
+        openedCard.src = deck[currentCard].cardFace;
+        if (currentCard === 0) {
+            openedCard.classList.add('active');
+        }
+        currentCard++;
+    } else {
+        deckElement.classList.remove('active');
+    }
 }
 
 function getCardsCount() {
@@ -91,4 +116,10 @@ function shuffleCards(cards) {
 
 function randomizer(from, to) {
     return (from + Math.floor(Math.random() * (to - from)));
+}
+
+function setVisibleGameArea() {
+    currentCard = 0;
+    deckElement.classList.add('active');
+    openedCard.classList.remove('active');
 }

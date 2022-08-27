@@ -98,6 +98,10 @@ h6 {
     background: url('./../assets/home.jpg') center / cover no-repeat;
 }
 
+.settings {
+    margin-bottom: 50px;
+}
+
 .settings__cards {
     display: flex;
     justify-content: space-between;
@@ -198,4 +202,31 @@ h6 {
     color: #000000;
     background-color: #ffffff;
     transition: all 0.3s;
+}
+
+.game {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+}
+
+.game__deck {
+    opacity: 0;
+    cursor: auto;
+}
+
+.game__deck.active {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.game__opened-card {
+    opacity: 0;
+    cursor: auto;
+}
+
+.game__opened-card.active {
+    opacity: 1;
+    cursor: pointer;
 }
