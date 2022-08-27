@@ -98,8 +98,6 @@ h6 {
     background: url('./../assets/home.jpg') center / cover no-repeat;
 }
 
-.settings {}
-
 .settings__cards {
     display: flex;
     justify-content: space-between;
