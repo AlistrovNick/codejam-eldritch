@@ -208,7 +208,7 @@ h6 {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    max-width: 500px;
+    max-width: 900px;
 }
 
 .game__deck {
@@ -229,4 +229,58 @@ h6 {
 .game__opened-card.active {
     opacity: 1;
     cursor: pointer;
+}
+
+.game__tracker {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 189px;
+    height: 267px;
+    opacity: 0;
+}
+
+.game__tracker.active {
+    opacity: 1;
+}
+
+.game__title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.game__title.active {
+    color: #ff5454;
+}
+
+.game__counters {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+.game__counter {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.game__counter_green {
+    background-color: #1f6a3b;
+}
+
+.game__counter_brown {
+    background-color: #ce913b;
+}
+
+.game__counter_blue {
+    background-color: #1c41bd;
 }
